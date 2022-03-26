@@ -1,9 +1,12 @@
-from typing import Any, Dict, List, Tuple
+from typing import Any, Callable, Dict, List, Tuple
+import json
 
 import _constants
 
+Vector = List[Tuple[str, str, Any]]
 
-def parse_data_for_creating(data: List[Tuple[str, str, Any]]) -> Dict:
+
+def parse_data_for_creating(data: Vector) -> Dict:
     """
     function for collecting the inputed params into a notion acceptable dict for further conversion into json
     Args:
@@ -21,3 +24,7 @@ def parse_data_for_creating(data: List[Tuple[str, str, Any]]) -> Dict:
             parsed_dict.update(type_attr(name, content))
 
     return parsed_dict
+
+
+def parse_into_json(parsed_data: Callable[[Vector], Dict]):
+    return json.dumps(parsed_data)
