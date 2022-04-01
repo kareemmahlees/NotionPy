@@ -48,7 +48,7 @@ def parse_for_pg_creation(
 def parse_into_json(
     parsed_data: Callable[[Optional[Vector1]], Dict], indent: Optional[int] = None
 ):
-    return json.dumps(parsed_data, indent)
+    return json.dumps(parsed_data, indent=indent)
 
 
 def parse_into_dict(json_data):
@@ -66,6 +66,8 @@ def parse_for_db_creation(
     function for collecting the inputed params into a notion acceptable dict for further conversion into json
     :param pg_id:
         the page id in which the database will be created as a subpage
+    :param title:
+        the title of the database
     :param data:
         list of tuples each containing ( property name , property type )
     :param icon:
@@ -95,8 +97,3 @@ def parse_for_db_creation(
         parsed_dict = constants.CREATING_DATABASE_TEMPLATE(pg_id, title, data_dict)
         parsed_dict.update(temp_dict)
         return parsed_dict
-
-
-# parse_for_db_creation(
-#     "lksjdkjf", "kareem mahlees", [("Name", "title"), ("price", "number")]
-# )
