@@ -7,9 +7,6 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from source.create import Create
 from source.query import Query
 
-# Vector1 = List[Tuple[str, str, Optional[Any]]]
-# Vector2 = List[Tuple[str, str]]
-
 
 class NotionClient(Create, Query):
     def __init__(self, token: str) -> None:

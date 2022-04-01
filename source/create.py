@@ -49,9 +49,3 @@ class Create:
             headers=constants.HEADERS(Create.TOKEN),
             data=data_,
         )
-
-
-# inst = Create("secret_LYxhmvMw0RoQncukgmKNjLkPHduLBLgELz5HE9id5MW")
-# inst.create_db("cc39932a53da46be8472fdfc4c55966e", "Grocery", data=[("Name", "title")])
-
-# https://www.notion.so/Test-cc39932a53da46be8472fdfc4c55966e
