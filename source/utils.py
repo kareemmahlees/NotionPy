@@ -1,9 +1,7 @@
 from typing import Any, Callable, Dict, List, Optional, Tuple
 import json
 
-import requests
-
-import constants
+from source import constants
 
 Vector1 = List[Tuple[str, str, Optional[Any]]]
 Vector2 = List[Tuple[str, str]]
@@ -47,8 +45,14 @@ def parse_for_pg_creation(
         return parsed_dict
 
 
-def parse_into_json(parsed_data: Callable[[Optional[Vector1]], Dict]):
-    return json.dumps(parsed_data)
+def parse_into_json(
+    parsed_data: Callable[[Optional[Vector1]], Dict], indent: Optional[int] = None
+):
+    return json.dumps(parsed_data, indent)
+
+
+def parse_into_dict(json_data):
+    return json.loads(json_data)
 
 
 def parse_for_db_creation(
