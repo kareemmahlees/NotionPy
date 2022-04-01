@@ -2,20 +2,19 @@ from typing import List, Optional, Tuple, Any
 
 import requests
 
-import constants
-from utils import parse_for_pg_creation, parse_into_json, parse_for_db_creation
+from source import constants
+from source.utils import parse_for_pg_creation, parse_into_json, parse_for_db_creation
 
 Vector = List[Tuple[str, str, Optional[Any]]]
 
 
 class Create:
-    def __init__(
-        self,
-        token: str,
-    ) -> None:
-        self.token = token
+    TOKEN = None
 
-    def create_page(
+    def __init__(self) -> None:
+        pass
+
+    def page(
         self,
         db_id: str,
         icon: Optional[str] = None,
@@ -27,12 +26,13 @@ class Create:
         )
         data_ = parse_into_json(data_)
         requests.post(
+            self,
             url=constants.CREATE_PAGE_URL,
-            headers=constants.HEADERS(self.token),
+            headers=constants.HEADERS(Create.TOKEN),
             data=data_,
         )
 
-    def create_db(
+    def db(
         self,
         page_id: str,
         title: str,
@@ -46,7 +46,7 @@ class Create:
         data_ = parse_into_json(data_)
         requests.post(
             url=constants.CREATE_DB_URL,
-            headers=constants.HEADERS(self.token),
+            headers=constants.HEADERS(Create.TOKEN),
             data=data_,
         )
 
@@ -54,5 +54,4 @@ class Create:
 # inst = Create("secret_LYxhmvMw0RoQncukgmKNjLkPHduLBLgELz5HE9id5MW")
 # inst.create_db("cc39932a53da46be8472fdfc4c55966e", "Grocery", data=[("Name", "title")])
 
-# secret_LYxhmvMw0RoQncukgmKNjLkPHduLBLgELz5HE9id5MW
 # https://www.notion.so/Test-cc39932a53da46be8472fdfc4c55966e
