@@ -25,6 +25,14 @@ to be able to integrate notion with your programme easily
         >>> Updating page 
                 NotionClient.update.page
 
+-> Supported properties :
+        -title          -rich_text
+        -select         -multi_select
+        -relation       -people
+        -checkbox       -url
+        -files          -email
+        -phone          -number
+
 ::copyright: (c) 2022 by Kareem Ebrahim.:
 
 """

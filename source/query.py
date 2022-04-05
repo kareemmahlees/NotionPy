@@ -7,6 +7,11 @@ from source.utils import parse_into_dict, parse_into_json
 
 
 class Query:
+    """
+    class that retrieves data from page or database with option to get it
+    json or dict like data
+    """
+
     TOKEN = None
 
     def __init__(self) -> None:

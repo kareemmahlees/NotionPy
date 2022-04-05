@@ -9,6 +9,10 @@ Vector = List[Tuple[str, str, Optional[Any]]]
 
 
 class Update:
+    """
+    class that updates the contents of (currently) pages
+    """
+
     TOKEN = None
 
     def __init__(self) -> None:
@@ -20,7 +24,7 @@ class Update:
         icon: Optional[str] = None,
         cover_url: Optional[str] = None,
         data: Optional[Vector] = None,
-        archived: Optional[bool] = False,
+        archived: Optional[bool] = False,  # Delete
     ) -> None:
         data_ = parse_for_pg_creation(
             db_id=pg_id, data=data, icon=icon, cover_url=cover_url
@@ -41,7 +45,7 @@ class Update:
         icon: Optional[str] = None,
         cover_url: Optional[str] = None,
         data: Vector = None,
-        archived: Optional[bool] = False,
+        archived: Optional[bool] = False,  # Delete
     ) -> None:
         data_ = parse_for_updating_db(
             db_id=db_id, data=data, title=title, icon=icon, cover_url=cover_url
@@ -53,4 +57,3 @@ class Update:
             headers=constants.HEADERS(Update.TOKEN),
             data=data_,
         )
-        print(res.json())

@@ -94,7 +94,7 @@ def parse_for_db_creation(
                 type_attr_[name] = {type_: {}}
 
                 data_dict.update(type_attr_)
-        parsed_dict = constants.CREATING_DATABASE_TEMPLATE(pg_id, data_dict)
+        parsed_dict = constants.CREATING_DATABASE_TEMPLATE(pg_id, title, data_dict)
         parsed_dict.update(temp_dict)
         return parsed_dict
 

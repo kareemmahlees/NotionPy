@@ -33,10 +33,18 @@ CREATING_PAGE_TEMPLATE = lambda dbid, data=None: {
     "properties": data,
 }
 
-CREATING_DATABASE_TEMPLATE = lambda page_id, data=None: {
-    "parent": {"type": "page_id", "page_id": page_id},
-    "properties": data,
-}
+CREATING_DATABASE_TEMPLATE = (
+    lambda page_id, title=None, data=None: {
+        "parent": {"type": "page_id", "page_id": page_id},
+        "title": [{"type": "text", "text": {"content": title, "link": None}}],
+        "properties": data,
+    }
+    if title is not None
+    else {
+        "parent": {"type": "page_id", "page_id": page_id},
+        "properties": data,
+    }
+)
 
 # not currently in use but for future updates
 UPDATE_DB_TEMPLATE = (

@@ -9,6 +9,10 @@ Vector = List[Tuple[str, str, Optional[Any]]]
 
 
 class Create:
+    """
+    class that creates pages or databases with provided data , icon and cover
+    """
+
     TOKEN = None
 
     def __init__(self) -> None:
