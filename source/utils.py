@@ -57,8 +57,8 @@ def parse_into_dict(json_data):
 
 def parse_for_db_creation(
     pg_id: str,
-    title: str,
     data: Vector2,
+    title: Optional[str] = None,
     icon: Optional[str] = None,
     cover_url: Optional[str] = None,
 ) -> Dict:
@@ -94,6 +94,38 @@ def parse_for_db_creation(
                 type_attr_[name] = {type_: {}}
 
                 data_dict.update(type_attr_)
-        parsed_dict = constants.CREATING_DATABASE_TEMPLATE(pg_id, title, data_dict)
+        parsed_dict = constants.CREATING_DATABASE_TEMPLATE(pg_id, data_dict)
+        parsed_dict.update(temp_dict)
+        return parsed_dict
+
+
+# not currently in use but for future updates
+def parse_for_updating_db(
+    db_id: str,
+    data: Vector1,
+    title: Optional[str] = None,
+    icon: Optional[str] = None,
+    cover_url: Optional[str] = None,
+) -> Dict:
+    data_dict = {}
+    temp_dict = {}
+    if icon is not None:
+        temp_dict.update(constants.ICON(icon))
+    if cover_url is not None:
+        temp_dict.update(constants.COVER(cover_url))
+    if data is not None:
+        for name, type_, content in data:
+            if type_.upper() not in {
+                i for i in constants.__dict__.keys()
+            }:  # check if property type exists
+                raise ValueError(f"Property {type_} Doesn't exist")
+
+            else:
+                type_attr = getattr(constants, type_.upper())
+                data_dict.update(type_attr(name, content))
+        parsed_dict = constants.UPDATE_DB_TEMPLATE(db_id, data_dict)
+        if title is not None:
+            parsed_dict.update(constants.DB_TITLE(title))
+
         parsed_dict.update(temp_dict)
         return parsed_dict
