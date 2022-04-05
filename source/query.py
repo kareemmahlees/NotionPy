@@ -1,4 +1,3 @@
-from optparse import Option
 from typing import Optional
 
 import requests
@@ -15,7 +14,7 @@ class Query:
 
     def page(
         self,
-        page_id,
+        page_id: str,
         in_json: Optional[bool] = False,
         json_indent: Optional[int] = None,
         print_data: Optional[bool] = False,
