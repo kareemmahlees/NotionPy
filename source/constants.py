@@ -1,4 +1,5 @@
 from datetime import datetime
+from os import stat
 
 HEADERS = lambda token: {
     "Authorization": "Bearer " + token,
@@ -14,13 +15,17 @@ QUERY_DB_URL = lambda dbid: f"https://api.notion.com/v1/databases/{dbid}/query"
 
 QUERY_PAGE_URL = lambda pgid: f"https://api.notion.com/v1/pages/{pgid}"
 
+UPDATE_PAGE_URL = lambda pgid: f"https://api.notion.com/v1/pages/{pgid}"
+
 ICON = lambda icon: {"icon": {"type": "emoji", "emoji": icon}}
 
 COVER = lambda cover_url: {
     "cover": {"type": "external", "external": {"url": cover_url}}
 }
 
-TITLE = lambda title: {
+ARCHIVE = lambda state: {"archived": state}
+
+DB_TITLE = lambda title: {
     "title": [{"type": "text", "text": {"content": title, "link": None}}]
 }
 
@@ -31,12 +36,26 @@ CREATING_PAGE_TEMPLATE = lambda dbid, data=None: {
     "properties": data,
 }
 
-CREATING_DATABASE_TEMPLATE = lambda page_id, title, data=None: {
+CREATING_DATABASE_TEMPLATE = lambda page_id, data=None: {
     "parent": {"type": "page_id", "page_id": page_id},
-    "title": [{"type": "text", "text": {"content": title, "link": None}}],
     "properties": data,
 }
 
+# not currently in use but for future updates
+UPDATE_DB_TEMPLATE = (
+    lambda db_id, data=None: {
+        "parent": {
+            "database_id": db_id,
+        },
+        "properties": data,
+    }
+    if data is not None
+    else {
+        "parent": {
+            "database_id": db_id,
+        },
+    }
+)
 
 TITLE = lambda prop_name, content: {
     prop_name: {"title": [{"type": "text", "text": {"content": content}}]}
@@ -65,20 +84,13 @@ CHECKBOX = lambda prop_name, status: {prop_name: {"checkbox": status}}
 URL = lambda prop_name, content: {prop_name: {"url": content}}
 
 FILES = lambda prop_name, url: {
-    prop_name: {"files": [{"type": "external", "name": "content", "external": url}]}
+    prop_name: {
+        "files": [{"type": "external", "name": "content", "external": {"url": url}}]
+    }
 }
 
 EMAIL = lambda prop_name, email: {prop_name: {"email": email}}
 
 PHONE = lambda prop_name, phone: {prop_name: {"phone_number": phone}}
-
-DATE = lambda prop_name, start=None, end=None: {
-    prop_name: {
-        "date": {
-            "start": datetime(start).astimezone().isoformat(),
-            "end": datetime(end).astimezone().isoformat(),
-        }
-    }
-}
 
 NUMBER = lambda prop_name, number: {prop_name: {"number": number}}
