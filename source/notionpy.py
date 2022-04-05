@@ -1,17 +1,20 @@
 from typing import List, Tuple, Optional, Any
 
-import os
-
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 from source.create import Create
 from source.query import Query
+from source.update import Update
 
 
-class NotionClient(Create, Query):
+class NotionClient(Create, Query, Update):
+    """
+    A class that acts like an entry point for other classes methods
+    """
+
     def __init__(self, token: str) -> None:
         Create.TOKEN = token
         Query.TOKEN = token
+        Update.TOKEN = token
 
     class create:
         def page(
@@ -47,3 +50,24 @@ class NotionClient(Create, Query):
             print_data: Optional[bool] = False,
         ) -> None:
             Query.db(Query, db_id, in_json, json_indent, print_data)
+
+    class update:
+        def page(
+            page_id,
+            data: List[Tuple[str, str, Optional[Any]]],
+            icon: Optional[str] = None,
+            cover: Optional[str] = None,
+            archived: Optional[bool] = False,
+        ):
+            Update.page(Update, page_id, icon, cover, data, archived)
+
+        # not currently in use but for future updates
+        def db(
+            page_id,
+            title: Optional[str] = None,
+            data: Optional[List[Tuple[str, str, Optional[Any]]]] = None,
+            icon: Optional[str] = None,
+            cover: Optional[str] = None,
+            archived: Optional[bool] = False,
+        ):
+            Update.db(Update, page_id, title, icon, cover, data, archived)
