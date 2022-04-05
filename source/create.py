@@ -26,7 +26,6 @@ class Create:
         )
         data_ = parse_into_json(data_)
         requests.post(
-            self,
             url=constants.CREATE_PAGE_URL,
             headers=constants.HEADERS(Create.TOKEN),
             data=data_,
