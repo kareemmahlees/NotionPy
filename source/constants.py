@@ -1,6 +1,3 @@
-from datetime import datetime
-from os import stat
-
 HEADERS = lambda token: {
     "Authorization": "Bearer " + token,
     "Notion-Version": "2022-02-22",
