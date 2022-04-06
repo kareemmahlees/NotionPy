@@ -2,8 +2,8 @@ from typing import Optional
 
 import requests
 
-from source import constants
-from source.utils import parse_into_dict, parse_into_json
+from NotionPy import constants
+from NotionPy.utils import parse_into_dict, parse_into_json
 
 
 class Query:

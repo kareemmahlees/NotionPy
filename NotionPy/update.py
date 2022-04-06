@@ -2,8 +2,8 @@ from typing import List, Tuple, Optional, Any
 
 import requests
 
-from source import constants
-from source.utils import parse_for_pg_creation, parse_into_json, parse_for_updating_db
+from NotionPy import constants
+from NotionPy.utils import parse_for_pg_creation, parse_into_json, parse_for_updating_db
 
 Vector = List[Tuple[str, str, Optional[Any]]]
 

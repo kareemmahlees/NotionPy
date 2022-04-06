@@ -10,9 +10,11 @@
 #         \ |       |     \|       |
 #          \|______________________|
 
+__version__ = "1.0.0"
 
 """
-################# notionpy library #################### 
+################# notionpy library ####################
+
 
 -> notionpy is a python library made for simplifying interaction with notion for developers 
 to be able to integrate notion with your programme easily 

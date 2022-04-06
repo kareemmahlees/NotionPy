@@ -1,9 +1,9 @@
 from typing import List, Tuple, Optional, Any
 
 
-from source.create import Create
-from source.query import Query
-from source.update import Update
+from NotionPy.create import Create
+from NotionPy.query import Query
+from NotionPy.update import Update
 
 
 class NotionClient(Create, Query, Update):

@@ -1,7 +1,7 @@
 from typing import Any, Callable, Dict, List, Optional, Tuple
 import json
 
-from source import constants
+from NotionPy import constants
 
 Vector1 = List[Tuple[str, str, Optional[Any]]]
 Vector2 = List[Tuple[str, str]]
