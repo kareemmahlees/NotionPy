@@ -4,3 +4,6 @@ NotionPy\_pycache_
 upcoming_updates.txt
 test.py
 _pycache_
+py_notion.egg-info
+build 
+dist
