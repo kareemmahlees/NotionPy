@@ -47,7 +47,9 @@ inst.create.page(
 )
 ```
 
-currently there is no support for creating empty pages or empty values but look forward for feature updates
+-> Note that the data inserted must be [(prop_name,type,value)]
+
+- currently there is no support for creating empty pages or empty values but look forward for feature updates
 
 retreiving data from a database :
 
@@ -58,6 +60,15 @@ inst.query.db("id of the database",
                 print_data=True #Optional
             )
 ```
+
+## Supported properties type
+
+        -title          -rich_text
+        -select         -multi_select
+        -relation       -people
+        -checkbox       -url
+        -files          -email
+        -phone          -number
 
 # Upcoming Updates
 
