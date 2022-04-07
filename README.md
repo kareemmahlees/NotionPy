@@ -1,7 +1,7 @@
-# NotionPy
+# auto-py-notion
 
 for creating,updating and querying databases and pages ,
-notionpy is a python module to help you integrete notion with your software/workflow
+auto-py-notion is a python module to help you integrete notion with your software/workflow
 
 # installation
 
