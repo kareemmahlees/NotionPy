@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="py-notion",
-    version="1.0.0",
+    version="0.0.1",
     description="integrate notion api with your workflow",
     long_description=README,
     long_description_content_type="text/markdown",
