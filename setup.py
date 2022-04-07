@@ -6,7 +6,7 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 setup(
-    name="py-notion",
+    name="auto-py-notion",
     version="0.0.1",
     description="integrate notion api with your workflow",
     long_description=README,
