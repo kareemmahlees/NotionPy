@@ -8,7 +8,7 @@ notionpy is a python module to help you integrete notion with your software/work
 in your terminal :
 
 ```
-pip install pynotion
+pip install py-notion
 ```
 
 # Requirments
