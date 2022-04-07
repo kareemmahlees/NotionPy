@@ -1,6 +1,6 @@
 .env
 .vscode 
-source\_pycache_
+NotionPy\_pycache_
 upcoming_updates.txt
 test.py
 MANIFEST.in
