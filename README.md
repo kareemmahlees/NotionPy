@@ -8,7 +8,7 @@ auto-py-notion is a python module to help you integrete notion with your softwar
 in your terminal :
 
 ```
-pip install py-notion
+pip install auto-py-notion
 ```
 
 # Requirments
