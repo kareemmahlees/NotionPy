@@ -6,7 +6,7 @@ from NotionPy.query import Query
 from NotionPy.update import Update
 
 
-class NotionClient(Create, Query, Update):
+class NotionClient:
     """
     A class that acts like an entry point for other classes methods
     """
@@ -61,7 +61,7 @@ class NotionClient(Create, Query, Update):
         ):
             Update.page(Update, page_id, icon, cover, data, archived)
 
-        # not currently in use but for future updates
+        # not currently in use but for          future updates
         def db(
             page_id,
             title: Optional[str] = None,
