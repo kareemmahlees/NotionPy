@@ -7,11 +7,11 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="auto-py-notion",
-    version="0.0.1",
+    version="0.0.2",
     description="integrate notion api with your workflow",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/kareemmahlees/NotionPy.git",
+    url="https://github.com/kareemmahlees/NotionPy",
     author="Kareem Ebrahim",
     author_email="kareemmahlees@gmail.com",
     license="MIT",
