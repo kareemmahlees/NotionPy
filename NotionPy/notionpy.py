@@ -48,8 +48,28 @@ class NotionClient:
             in_json: Optional[bool] = False,
             json_indent: Optional[int] = None,
             print_data: Optional[bool] = False,
+            sort: Optional[List[Tuple]] = None,  # [(prop_name,asceding or descending)]
+            Filter: Optional[
+                List[Tuple]
+            ] = None,  # [(prop_name,prop_type,condition,value)]
+            and_filter: Optional[
+                List[Tuple]
+            ] = None,  # [(prop_name,prop_type,condition,value)]
+            or_filter: Optional[
+                List[Tuple]
+            ] = None,  # [(prop_name,prop_type,condition,value)]
         ) -> None:
-            Query.db(Query, db_id, in_json, json_indent, print_data)
+            Query.db(
+                Query,
+                db_id,
+                in_json,
+                json_indent,
+                print_data,
+                sort,
+                Filter,
+                and_filter,
+                or_filter,
+            )
 
     class update:
         def page(
@@ -61,7 +81,7 @@ class NotionClient:
         ):
             Update.page(Update, page_id, icon, cover, data, archived)
 
-        # not currently in use but for          future updates
+        # not currently in use but for future updates
         def db(
             page_id,
             title: Optional[str] = None,
