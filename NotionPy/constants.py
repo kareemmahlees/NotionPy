@@ -22,6 +22,36 @@ COVER = lambda cover_url: {
 
 ARCHIVE = lambda state: {"archived": state}
 
+SORT = lambda sorting_info: {
+    "sorts": [
+        {"property": prop_name, "direction": direction}
+        for prop_name, direction in sorting_info
+    ]
+}
+
+FILTER = lambda filtering_info: {
+    "filter": {"property": prop_name, prop_type: {condition: value}}
+    for prop_name, prop_type, condition, value in filtering_info
+}
+
+AND_FILTER = lambda filtering_info: {
+    "filter": {
+        "and": [
+            {"property": prop_name, prop_type: {condition: value}}
+            for prop_name, prop_type, condition, value in filtering_info
+        ]
+    }
+}
+
+OR_FILTER = lambda filtering_info: {
+    "filter": {
+        "or": [
+            {"property": prop_name, prop_type: {condition: value}}
+            for prop_name, prop_type, condition, value in filtering_info
+        ]
+    }
+}
+
 DB_TITLE = lambda title: {
     "title": [{"type": "text", "text": {"content": title, "link": None}}]
 }
