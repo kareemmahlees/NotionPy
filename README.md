@@ -1,7 +1,7 @@
-# auto-py-notion
+# NotionPy
 
 for creating,updating and querying databases and pages ,
-auto-py-notion is a python module to help you integrete notion with your software/workflow
+NotionPy is a python module to help you integrete notion with your software/workflow
 
 # installation
 
@@ -47,7 +47,7 @@ inst.create.page(
 )
 ```
 
--> Note that the data inserted must be [(prop_name,type,value)]
+-> Note that the data inserted must be [ ( prop_name ,type ,value ) ]
 
 - currently there is no support for creating empty pages or empty values but look forward for feature updates
 
@@ -70,14 +70,15 @@ inst.query.db("id of the database",
         -files          -email
         -phone          -number
 
-# Upcoming Updates
+## NotionPy 0.1.2 , What's New !
 
-- Add filters and sorts to querying databases for
-- Add children objects in page creating
-- Add number formating
-- Add support for saving the query data in a json file
+---
+
+- sorting in queryring databases
+- filtering in queyring databases
+- Bug fx
 
 ## Notes
 
 - there are other modules that interact with notion's API so what makes this module different ? it is the fact that , as far as my research went , it is the most userfriendly and practical one
-- This module is still fairly simple and has a lot to offer in the future , so all of your suggestions , issues , contributions are very welcomed
+- This module is still has a lot to offer in the future , so all of your suggestions , issues , contributions are very welcomed
